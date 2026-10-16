@@ -2,4 +2,19 @@
 // 写作那一步写完中文标题、摘要和推荐理由后逐个查，用了就让模型只改这些地方一次（packages/backend/src/editorial/
 // analyze.ts 的 mendWording）。只列一眼就能判断的写法：拿不准的不列，否则会误改正常的词。空着就不查。
 
-export const READER_WORDING: ReadonlyArray<readonly [RegExp, string]> = [];
+// Web3 金融语境下读者看得到的文字里本站不用的夸张/营销写法，每项是要找的写法和改法。
+// 写作那一步写完中文标题、摘要和推荐理由后逐个查，用了就让模型只改这些地方一次（packages/backend/src/editorial/
+// analyze.ts 的 mendWording）。只列一眼就能判断的写法：拿不准的不列，否则会误改正常的词。空着就不查。
+
+export const READER_WORDING: ReadonlyArray<readonly [RegExp, string]> = [
+  [/重磅/g, ""],
+  [/颠覆性?/g, ""],
+  [/革命性/g, ""],
+  [/划时代/g, ""],
+  [/炸裂/g, ""],
+  [/重新定义/g, ""],
+  [/史无前例/g, ""],
+  [/暴富/g, ""],
+  [/百倍/g, ""],
+  [/千倍/g, ""],
+];

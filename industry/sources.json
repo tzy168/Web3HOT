@@ -1,368 +1,207 @@
 {
-  "$comment": "示范信源：首次启动时导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”里新建、修改和暂停。字段说明见 docs/customize.md。",
+  "$comment": "Web3 金融热点站示范信源：首次启动导入（scripts/seed.ts），已存在的不会被覆盖。之后在后台“信源”新建、修改、暂停。字段说明见 docs/customize.md 与 docs/sources.md。取向：Web3 金融为主，影响它的传统金融（美联储、SEC）为辅，Web3 技术小头。状态标注：verified=已在沙箱实测 HTTP 200；candidate=真实存在但本机代理拦截未能实测，务必在后台“信源→预览抓取”逐一确认，404/超时即替换。",
   "sources": [
     {
-      "id": "rss-openai-news",
-      "name": "OpenAI News",
+      "id": "rss-cointelegraph",
+      "name": "Cointelegraph",
+      "status": "verified",
       "kind": "rss",
-      "config": {
-        "feedUrl": "https://openai.com/news/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "openai",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-deepmind",
-      "name": "Google DeepMind",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://deepmind.google/blog/rss.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-google-research",
-      "name": "Google Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://research.google/blog/rss/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "google",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-hugging-face",
-      "name": "Hugging Face Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://huggingface.co/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "hugging-face",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "开源"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-microsoft-research",
-      "name": "Microsoft Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.microsoft.com/en-us/research/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "microsoft",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-nvidia-blog",
-      "name": "NVIDIA Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://blogs.nvidia.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": "nvidia",
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-aws-ml",
-      "name": "AWS Machine Learning Blog",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://aws.amazon.com/blogs/machine-learning/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方",
-        "教程"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-github-ai",
-      "name": "GitHub Blog · AI & ML",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://github.blog/ai-and-ml/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-mistral",
-      "name": "Mistral AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://mistral.ai/news/rss",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 120,
-      "tags": [
-        "官方"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-bair",
-      "name": "Berkeley AI Research",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://bair.berkeley.edu/blog/feed.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T1",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "研究"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-the-verge-ai",
-      "name": "The Verge · AI",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
+      "config": { "feedUrl": "https://cointelegraph.com/rss", "_aihot": { "initialBackfillLimit": 8 } },
       "tier": "T2",
-      "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "tags": ["媒体"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-techcrunch-ai",
-      "name": "TechCrunch · AI",
+      "id": "rss-theblock",
+      "name": "The Block",
+      "status": "verified",
       "kind": "rss",
-      "config": {
-        "feedUrl": "https://techcrunch.com/category/artificial-intelligence/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
+      "config": { "feedUrl": "https://www.theblock.co/rss.xml", "_aihot": { "initialBackfillLimit": 8 } },
       "tier": "T2",
-      "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "tags": ["媒体"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-ars-technica-ai",
-      "name": "Ars Technica · AI",
+      "id": "rss-thedefiant",
+      "name": "The Defiant",
+      "status": "verified",
       "kind": "rss",
-      "config": {
-        "feedUrl": "https://arstechnica.com/ai/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
+      "config": { "feedUrl": "https://thedefiant.io/feed", "_aihot": { "initialBackfillLimit": 8 } },
       "tier": "T2",
-      "owner_entity_id": null,
       "participation_mode": "editorial",
       "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
+      "tags": ["媒体", "DeFi"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-mit-tech-review-ai",
-      "name": "MIT Technology Review · AI",
+      "id": "rss-bitcoinmagazine",
+      "name": "Bitcoin Magazine",
+      "status": "verified",
       "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.technologyreview.com/topic/artificial-intelligence/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
+      "config": { "feedUrl": "https://bitcoinmagazine.com/feed", "_aihot": { "initialBackfillLimit": 8 } },
       "tier": "T2",
-      "owner_entity_id": null,
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["媒体", "BTC"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-chainalysis",
+      "name": "Chainalysis",
+      "status": "verified",
+      "kind": "rss",
+      "config": { "feedUrl": "https://www.chainalysis.com/blog/rss/", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1",
+      "owner_entity_id": "chainalysis",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "媒体"
-      ],
+      "tags": ["官方", "链上数据"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-the-decoder",
-      "name": "The Decoder",
+      "id": "rss-federalreserve",
+      "name": "Federal Reserve",
+      "status": "verified",
       "kind": "rss",
-      "config": {
-        "feedUrl": "https://the-decoder.com/feed/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
-      "participation_mode": "editorial",
-      "interval_minutes": 60,
-      "tags": [
-        "媒体"
-      ],
-      "site_fulltext": false,
-      "syndicate_fulltext": false
-    },
-    {
-      "id": "rss-simon-willison",
-      "name": "Simon Willison",
-      "kind": "rss",
-      "config": {
-        "feedUrl": "https://simonwillison.net/atom/everything/",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "config": { "feedUrl": "https://www.federalreserve.gov/feeds/press_all.xml", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1",
+      "owner_entity_id": "federal_reserve",
       "participation_mode": "editorial",
       "interval_minutes": 120,
-      "tags": [
-        "个人"
-      ],
+      "tags": ["官方", "宏观/利率", "传统金融"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-import-ai",
-      "name": "Import AI",
+      "id": "rss-sec",
+      "name": "SEC",
+      "status": "verified",
       "kind": "rss",
-      "config": {
-        "feedUrl": "https://importai.substack.com/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
-      "tier": "T2",
-      "owner_entity_id": null,
+      "config": { "feedUrl": "https://www.sec.gov/news/pressreleases.rss", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1",
+      "owner_entity_id": "sec",
       "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人",
-        "周刊"
-      ],
+      "interval_minutes": 120,
+      "tags": ["官方", "监管/合规"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     },
     {
-      "id": "rss-latent-space",
-      "name": "Latent Space",
+      "id": "rss-coindesk",
+      "name": "CoinDesk",
+      "status": "candidate",
       "kind": "rss",
-      "config": {
-        "feedUrl": "https://www.latent.space/feed",
-        "_aihot": {
-          "initialBackfillLimit": 8
-        }
-      },
+      "config": { "feedUrl": "https://www.coindesk.com/arc/outboundfeeds/rss/", "_aihot": { "initialBackfillLimit": 8 } },
       "tier": "T2",
-      "owner_entity_id": null,
       "participation_mode": "editorial",
-      "interval_minutes": 180,
-      "tags": [
-        "个人"
-      ],
+      "interval_minutes": 60,
+      "tags": ["媒体"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-defillama",
+      "name": "DefiLlama",
+      "status": "candidate",
+      "kind": "rss",
+      "config": { "feedUrl": "https://defillama.com/blog/rss.xml", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1",
+      "owner_entity_id": "defillama",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "DeFi", "链上数据"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-ethereum",
+      "name": "Ethereum Foundation",
+      "status": "candidate",
+      "kind": "rss",
+      "config": { "feedUrl": "https://blog.ethereum.org/feed.xml", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1",
+      "owner_entity_id": "ethereum",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "协议/基建"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-uniswap",
+      "name": "Uniswap",
+      "status": "candidate",
+      "kind": "rss",
+      "config": { "feedUrl": "https://blog.uniswap.org/feed", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1",
+      "owner_entity_id": "uniswap",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "DeFi"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-aave",
+      "name": "Aave",
+      "status": "candidate",
+      "kind": "rss",
+      "config": { "feedUrl": "https://aave.com/blog/rss.xml", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1",
+      "owner_entity_id": "aave",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "DeFi"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-bankless",
+      "name": "Bankless",
+      "status": "candidate",
+      "kind": "rss",
+      "config": { "feedUrl": "https://banklesshq.com/feed", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T2",
+      "participation_mode": "editorial",
+      "interval_minutes": 60,
+      "tags": ["媒体", "DeFi"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-coinbase",
+      "name": "Coinbase",
+      "status": "candidate",
+      "kind": "rss",
+      "config": { "feedUrl": "https://www.coinbase.com/blog/feed", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1_5",
+      "owner_entity_id": "coinbase",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "交易所"],
+      "site_fulltext": false,
+      "syndicate_fulltext": false
+    },
+    {
+      "id": "rss-gateio",
+      "name": "Gate.io",
+      "status": "candidate",
+      "kind": "rss",
+      "config": { "feedUrl": "https://blog.gate.io/feed", "_aihot": { "initialBackfillLimit": 8 } },
+      "tier": "T1_5",
+      "owner_entity_id": "gateio",
+      "participation_mode": "editorial",
+      "interval_minutes": 120,
+      "tags": ["官方", "交易所"],
       "site_fulltext": false,
       "syndicate_fulltext": false
     }
